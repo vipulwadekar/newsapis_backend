@@ -1,0 +1,39 @@
+{
+    "category": "science",
+    "country": "in",
+    "News Data": [
+        {
+            "status": "ok",
+            "totalResults": 66,
+            "articles": {
+                "source": {
+                    "id": null,
+                    "name": "Asianetnews.com"
+                },
+                "author": "Gargi Chaudhry",
+                "title": "Asteroid 2022 QV to Asteroid 2022 QW3: 5 asteroids to fly by Earth on August 22, 23 - Asianet Newsable ",
+                "description": "Asteroids coming close to Earth have been making the headlines recently. NASA's asteroid watch program states four asteroids are scheduled to fly by Earth today, and one tomorrow.",
+                "url": "https://newsable.asianetnews.com/gallery/science/asteroid-2022-qv-to-asteroid-2022-qw3-5-asteroids-to-to-fly-by-earth-on-august-22-23-gcw-rh0cg3",
+                "urlToImage": "https://static-ai.asianetnews.com/images/01dmfxeh6522g9kh98te0hfwh9/gettyimages-586024692-jpg_1200x630xt.jpg",
+                "publishedAt": "2022-08-22T08:29:35Z",
+                "content": "Asteroids coming close to Earth have been making the headlines recently.  NASA's asteroid watch program states four asteroids are scheduled to fly by Earth today, and one tomorrow.\r\nasteroids 2\r\nRece… [+2928 chars]"
+            }
+        },
+        {
+            "status": "ok",
+            "totalResults": 66,
+            "articles": {
+                "source": {
+                    "id": null,
+                    "name": "News9live.com"
+                },
+                "author": "News9 Staff",
+                "title": "Asteroid Ryugu samples contain dust grains older than our Sun - News9 LIVE",
+                "description": "The samples were collected by JAXA's Hayabusa 2 mission",
+                "url": "https://www.news9live.com/science/asteroid-ryugu-samples-contain-dust-grains-older-than-our-sun-190987",
+                "urlToImage": "https://media.news9live.com/h-upload/2022/08/22/536258-ryugu-sample-hayabusa.jpg",
+                "publishedAt": "2022-08-22T08:11:35Z",
+                "content": "About 4.5 billion years ago, a nearby star ran out of nuclear fuel, died in a violent explosion, spewing material into a cloud of gas and dust, causing it to collapse under its own gravity into what … [+2018 chars]"
+            }
+        },
+    ]
