@@ -26,7 +26,7 @@ class NewsList(APIView):
         serializer = NewsSerializer(news_obj, many=True)
         return DjangoRestResponse(
             {
-                "News Data": serializer.data,
+                "Newsdata": serializer.data,
             },
             status=status.HTTP_201_CREATED,
         )
