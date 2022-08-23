@@ -21,6 +21,17 @@ class NewsList(APIView):
     """
 
     def get(self, request, format=None):
+
+        news_obj = News.objects.all()
+        serializer = NewsSerializer(news_obj, many=True)
+        return DjangoRestResponse(
+            {
+                "News Data": serializer.data,
+            },
+            status=status.HTTP_201_CREATED,
+        )
+
+    def post(self, request):
         # taking i/p from params
         category = request.GET.get("category")
         country = request.GET.get("country")
@@ -36,41 +47,36 @@ class NewsList(APIView):
         top_headlines_articles_len = len(top_headlines["articles"])
         # news = top_headlines["articles"][0]
         print(top_headlines_articles_len)
-        # for i in range(top_headlines_articles_len):
-        #     # print(top_headlines["articles"][i]["author"])
-        #     print("index", i)
-        #     print(top_headlines["articles"][i]["title"])
+        for i in range(top_headlines_articles_len):
+            # print(top_headlines["articles"][i]["author"])
+            print("index", i)
+            print(top_headlines["articles"][i]["title"])
 
-        #     news_obj, news_created = News.objects.get_or_create(
-        #         source_name=top_headlines["articles"][i]["source"]["name"],
-        #         author=top_headlines["articles"][i]["author"],
-        #         title=top_headlines["articles"][i]["title"],
-        #         description=top_headlines["articles"][i]["description"],
-        #         url=top_headlines["articles"][i]["url"],
-        #         urlToImage=top_headlines["articles"][i]["urlToImage"],
-        #         published_at=top_headlines["articles"][i]["publishedAt"],
-        #         content=top_headlines["articles"][i]["content"],
-        #         category=category_name,
-        #     )
-        #     print(type(news_obj))
-        #     print(type(news_created))
+            # for i in news:
+            #     # print(key)1)status2)totalResults3)articles
+            #     if i == "author":
+            #         print("******************", news[i])
 
-        news_obj = News.objects.all()
-        print(news_obj.count())
-        serializer = NewsSerializer(news_obj, many=True)
-        # for i in news:
-        #     # print(key)1)status2)totalResults3)articles
-        #     if i == "author":
-        #         print("******************", news[i])
-
-        # top_headlines_df = pd.DataFrame.from_dict(top_headlines)
-        # json_obj = top_headlines_df.to_json(orient="records")
-
+            # top_headlines_df = pd.DataFrame.from_dict(top_headlines)
+            # json_obj = top_headlines_df.to_json(orient="records")
+            news_obj, news_created = News.objects.get_or_create(
+                source_name=top_headlines["articles"][i]["source"]["name"],
+                author=top_headlines["articles"][i]["author"],
+                title=top_headlines["articles"][i]["title"],
+                description=top_headlines["articles"][i]["description"],
+                url=top_headlines["articles"][i]["url"],
+                urlToImage=top_headlines["articles"][i]["urlToImage"],
+                published_at=top_headlines["articles"][i]["publishedAt"],
+                content=top_headlines["articles"][i]["content"],
+                category=category_name,
+            )
+            print(type(news_obj))
+            print(type(news_created))
         return DjangoRestResponse(
             {
                 "category": category,
                 "country": country,
-                "News Data": serializer.data,
+                "News Data": "serializer.data",
             },
             status=status.HTTP_201_CREATED,
         )
