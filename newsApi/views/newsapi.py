@@ -41,8 +41,12 @@ class NewsList(APIView):
                 status=status.HTTP_404_NOT_FOUND,
             )
         category_name = Category.objects.get(pk=1)
-        # print(category_name.id)
+        print("DEBUG : ", category_name)
+
+        # requesting to https://newsapi.org/ to get data
         top_headlines = newsapi.get_top_headlines(country=country, category=category)
+        print("DEBUG : business", type(top_headlines))
+        print("DEBUG : business data", (top_headlines))
         # print("====================", (top_headlines["articles"]))
         top_headlines_articles_len = len(top_headlines["articles"])
         # news = top_headlines["articles"][0]
@@ -70,13 +74,13 @@ class NewsList(APIView):
                 content=top_headlines["articles"][i]["content"],
                 category=category_name,
             )
-            print(type(news_obj))
-            print(type(news_created))
+            print("DEBUG : Type", type(news_obj))
+            print("DEBUG : Type", type(news_created))
         return DjangoRestResponse(
             {
                 "category": category,
                 "country": country,
-                "News Data": "serializer.data",
+                "News Data": json.dumps(news_obj),
             },
             status=status.HTTP_201_CREATED,
         )
