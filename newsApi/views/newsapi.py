@@ -41,7 +41,7 @@ class NewsList(APIView):
                 status=status.HTTP_404_NOT_FOUND,
             )
         category_name = Category.objects.get(pk=1)
-        print("DEBUG : ", category_name)
+        print("DEBUG : ", category_name.id)
 
         # requesting to https://newsapi.org/ to get data
         top_headlines = newsapi.get_top_headlines(country=country, category=category)
@@ -80,7 +80,7 @@ class NewsList(APIView):
             {
                 "category": category,
                 "country": country,
-                "News Data": json.dumps(news_obj),
+                "News Data": "json.dumps(news_obj)",
             },
             status=status.HTTP_201_CREATED,
         )
